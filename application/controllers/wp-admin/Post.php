@@ -17,7 +17,17 @@ class Post extends CI_Controller
 
     public function simpanPostingan()
     {
-        $content = $_POST['content'];
+        $content        = $_POST['content'];
+        $title          = $this->input->post('title');
+        $kategori       = $this->input->post('kategori');
+        $data = array(
+            'author'        => "Dasep" ,
+            'title'         => $title ,
+            'kategori'      => $kategori ,
+            'date'          => date('y-m-d H:i:s') ,
+            'content'       => $content ,
+        );
+        $this->db->insert("tbl_artikel",$data);
         
     }
 

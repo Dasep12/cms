@@ -21,7 +21,14 @@
             </div>
             <!-- /.box-header -->
             <form id="formUpload" action="#" method="post">
-            <div class="box-body">
+                <div class="form-group">
+                    <input  type="text" name="title" class="form-control">
+                 </div>
+
+                 <div class="form-group">
+                    <input  type="text" name="kategori" class="form-control">
+                 </div>
+
                 <div class="form-group">
                     <textarea rows="35" col="30" name="content" id="content" class="form-control ckeditor"></textarea>
                  </div>
@@ -61,7 +68,7 @@
             
           },
           success : function (params) {
-            
+            console.log(params);
           }
         })
     })
