@@ -5,30 +5,41 @@ class Post extends CI_Controller
     public function index()
     {
         $data = array(
-            'post'      => $this->m_cms->get("tbl_artikel")->result()
+            'post'      => $this->m_cms->get("tbl_artikel")->result() ,
         );
         $this->template->load("Template/Template","wp-admin/listpost",$data);
     }
 
     public function tambahPost()
     {
-        $this->template->load("Template/Template","wp-admin/addpost");
+        $data = array(
+            'kategori'      => $this->m_cms->get("kategori")->result() ,
+        );
+        $this->template->load("Template/Template","wp-admin/addpost",$data);
     }
 
     public function simpanPostingan()
     {
-        $content        = $_POST['content'];
+        $content        = $this->input->post('content');
         $title          = $this->input->post('title');
         $kategori       = $this->input->post('kategori');
         $data = array(
+            'idpost'        => md5('his') ,
             'author'        => "Dasep" ,
             'title'         => $title ,
             'kategori'      => $kategori ,
             'date'          => date('y-m-d H:i:s') ,
             'content'       => $content ,
         );
-        $this->db->insert("tbl_artikel",$data);
-        
+//        var_dump($data);
+       $input =  $this->m_cms->insert($data,"tbl_artikel");
+            if($input > 0 ){
+                $this->session->set_flashdata('ok','posting sukses');
+                redirect('wp-admin/Post/tambahPost');
+            }else {
+               $this->session->set_flashdata('err','posting gagal');
+                redirect('wp-admin/Post/tambahPost');
+            }
     }
 
 
