@@ -13,5 +13,19 @@ class M_cms extends CI_Model
         $this->db->insert($table,$data);
         return $this->db->affected_rows();
     }
+
+    //getkode otomatis
+    public function getCode()
+    {
+      $query = $this->db->query("SELECT MAX(idkategori) as nourut FROM kategori");
+      return $query->row();
+    }
+
+    //update 
+    public function update($table,$data,$where)
+    {
+      $this->db->update($table,$data,$where);
+      return $this->db->affected_rows();
+    }
     
 }

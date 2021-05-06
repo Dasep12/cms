@@ -29,6 +29,8 @@ $url1 = $this->uri->segment(3);
 	<script src="http://cdn.ckeditor.com/4.6.2/standard-all/ckeditor.js"></script>
 	<!-- jQuery 3 -->
 	<script src="<?= base_url('assets') ?>/bower_components/jquery/dist/jquery.min.js"></script>
+  <!-- Bootstrap 3.3.7 -->
+  <script src="<?= base_url('assets') ?>/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -528,8 +530,7 @@ $url1 = $this->uri->segment(3);
 <!-- ./wrapper -->
 
 
-<!-- Bootstrap 3.3.7 -->
-<script src="<?= base_url('assets') ?>/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
 <!-- SlimScroll -->
 <script src="<?= base_url('assets') ?>/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
