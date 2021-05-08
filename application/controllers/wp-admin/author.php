@@ -1,8 +1,7 @@
 <?php
 
 
-
-class Home extends CI_Controller
+class Author extends CI_Controller
 {
     public function index()
     {
@@ -10,7 +9,7 @@ class Home extends CI_Controller
           'countPost'      => $this->m_cms->getData(['status' => 0],"tbl_artikel")->num_rows() , 
           'countDraft'      => $this->m_cms->getData(['status' => 1],"tbl_artikel")->num_rows() , 
         );
-        $this->template->load("Template/Template","wp-admin/home", $data);
+        $this->template->load("Template/Template","wp-admin/author", $data);
     }
     
 }

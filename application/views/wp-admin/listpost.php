@@ -6,14 +6,29 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Layout</a></li>
-        <li class="active">Fixed</li>
+        <li><a href="#">Post</a></li>
+        <li class="active">List Post</li>
       </ol>
     </section>   
     
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
+        <?php if($this->session->flashdata('ok')) { ?>
+            <div class="alert alert-info alert-dismissible" role="alert">
+              <strong>Berhasil!</strong> <?= $this->session->flashdata('ok') ?>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          <?php }else if($this->session->flashdata('err')) { ?>
+          <div class="alert alert-danger alert-dismissible" role="alert">
+              <strong>Gagal ! </strong>  <?= $this->session->flashdata('err') ?>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          <?php } ?>
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Artikel</h3>
@@ -40,7 +55,8 @@
                   <td><?= $post->date ?></td>
                   <td><?= $post->kategori ?></td>
                   <td>
-                    <a href="" class="btn btn-info btn-sm"></a>
+                    <a onclick="return confirm('hapus')" href="<?= base_url('wp-admin/Post/delete/' . $post->id) ?>" class="btn btn-danger btn-sm"  >hapus</a>
+                    <a href="<?= base_url('wp-admin/Post/edit/' . $post->id) ?>" class="btn btn-primary btn-sm">edit</a>
                   </td>
                 </tr>
                 <?php endforeach ; ?>

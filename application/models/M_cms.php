@@ -7,6 +7,11 @@ class M_cms extends CI_Model
        return $this->db->get($table);
     }
 
+    public function getData($where,$table)
+    {
+      return $this->db->get_where($table,$where);
+    }
+
 
     public function insert($data,$table)
     {
@@ -25,6 +30,13 @@ class M_cms extends CI_Model
     public function update($table,$data,$where)
     {
       $this->db->update($table,$data,$where);
+      return $this->db->affected_rows();
+    }
+
+    //delete
+    public function delete($table,$id)
+    {
+      $this->db->delete($table,$id);
       return $this->db->affected_rows();
     }
     

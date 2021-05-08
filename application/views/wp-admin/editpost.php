@@ -3,12 +3,12 @@
   <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Tambah Postingan
+       Edit Postingan
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Layout</a></li>
-        <li class="active">Fixed</li>
+        <li><a href="#">Post</a></li>
+        <li class="active">Edit Post</li>
       </ol>
     </section>   
     
@@ -32,34 +32,32 @@
       <?php } ?>
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Hover Data Table</h3>
+              <h3 class="box-title">Edit Postingan</h3>
             </div>
             <!-- /.box-header -->
           <div class="box-body">
-               <form id="formUpload1" action="<?= base_url('wp-admin/Post/simpanPostingan') ?>" method="post">
+               <form id="formUpload1" action="<?= base_url('wp-admin/Post/update') ?>" method="post">
                 <div class="form-group">
                     <label>Judul Postingan</label>
-                    <input  type="text" name="title" class="form-control">
+                    <input type="hidden" name="id" value="<?= $post->id ?>">
+                    <input  type="text" name="title" value="<?= $post->title ?>" class="form-control">
                  </div>
 
                 <div class="form-group">
                   <select class="form-control" name="kategori">
+                    <option selected=""><?= $post->kategori ?></option>
                     <?php foreach($kategori as $k ) : ?>
                       <option><?= $k->kategori ?></option>
                     <?php endforeach ; ?>
                   </select>
                 </div>
-                <div class="form-group">
-                       <input type="checkbox" name="status" value="1">
-                       Simpan Sebagai Draft 
-                 </div>
 
                 <div class="form-group">
                     <label>Postingan</label>
-                    <textarea rows="20" col="30" name="content" id="content" class="form-control ckeditor"></textarea>
+                    <textarea rows="20" col="30" name="content" id="content" class="form-control ckeditor"><?= $post->content ?></textarea>
                  </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Posting</button>
+                    <button type="submit" class="btn btn-primary">Perbarui</button>
                 </div>
                 
             </div>

@@ -238,6 +238,7 @@ $url1 = $this->uri->segment(3);
 		<li class="<?= $url == 'Draft' ? 'active' : '' ; ?>">
 			<a href="<?= base_url('wp-admin/Draft') ?>">
 				<i class="fa fa-th"></i> <span>Draft</span>
+        <small class="label pull-right bg-red"><?= $countDraft ?></small>
 			</a>
 		</li>
 
@@ -260,6 +261,7 @@ $url1 = $this->uri->segment(3);
             <li class="<?= $url1 == "" ? 'active' : '' ; ?>">
 				<a href="<?= base_url('wp-admin/Post') ; ?>">
 					<i class="fa fa-circle-o"></i> Daftar Postingan
+         <small class="label pull-right bg-red"><?= $countPost ?></small>
 				</a>
 			</li>
           </ul>
@@ -280,13 +282,19 @@ $url1 = $this->uri->segment(3);
 			</li>
             <li class="<?= $url1 == "add" ? 'active' : '' ; ?>">
 				<a href="<?= base_url('wp-admin/Kategori/add') ?>">
-					<i class="fa fa-circle-o"></i>Tambah Kategori
+					<i class="fa fa-circle-o"></i> Tambah Kategori
 				</a>
 			</li>
-          </ul>
+           </ul>
         </li>
 
-        <li>
+       <li>
+          <a href="<?= base_url('wp-admin/Author') ?>">
+            <i class="fa fa-user"></i> <span>Author</span>
+          </a>
+        </li>
+
+        <!-- <li>
           <a href="../calendar.html">
             <i class="fa fa-calendar"></i> <span>Calendar</span>
             <span class="pull-right-container">
@@ -304,7 +312,7 @@ $url1 = $this->uri->segment(3);
               <small class="label pull-right bg-red">5</small>
             </span>
           </a>
-        </li>
+        </li> -->
 
 
       </ul>
